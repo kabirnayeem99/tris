@@ -8,7 +8,7 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
-    val game = Game()
+    private val game = Game(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         val winner = game.playGame(cellId, buttonSelected)
+
+
 
         if (winner == 1) {
             Toast.makeText(this, "First Player Won", Toast.LENGTH_SHORT).show()

@@ -2,8 +2,10 @@ package io.github.kabirnayeem99.tris
 
 import android.util.Log
 import android.widget.Button
+import java.util.*
+import kotlin.collections.ArrayList
 
-class Game {
+class Game(val activity: MainActivity) {
 
     private val TAG = "Game"
 
@@ -108,7 +110,7 @@ class Game {
         if (!playerFirstSelectedCellList.contains(cellId)
             && !playerSecondSelectedCellList.contains(cellId)
         ) {
-            if (activePlayer == 1 && playerFirstSelectedCellList.size < 3) {
+            if (playerFirstSelectedCellList.size < 3) {
 
                 Log.d(TAG, "playGame: ${playerFirstSelectedCellList.size}")
 
@@ -120,26 +122,61 @@ class Game {
                 playerFirstSelectedCellList.add(cellId)
 
                 // switches the player to the other one
-                activePlayer = 2
+                autoPlay().also {
+                    activePlayer = 2
+                }
 
-            } else if (activePlayer == 2 && playerSecondSelectedCellList.size < 3) {
-
-                // changes the appearance of the selected cell
-                buttonSelected.text = Constants.PLAYER_SECOND_SELECTED_SYMBOL
-                playerSecondSelectedCellList.add(cellId)
-
-                // adds the cell to the selected cell list
-                buttonSelected.setBackgroundResource(Constants.PLAYER_SECOND_SELECTED_COLOR)
-
-                // switches the player to the other one
-                activePlayer = 1
             }
 
             // this button can't be clicked again
             // buttonSelected.isEnabled = false
 
         }
+
+        Log.d(TAG, "playGame: p1 $playerFirstSelectedCellList")
+        Log.d(TAG, "playGame: p2 $playerSecondSelectedCellList")
+
         return checkWinner()
+
+    }
+
+    private fun autoPlay() {
+        val emptyCells = ArrayList<Int>()
+        for (cellId in 1..9) {
+            if (!(playerFirstSelectedCellList.contains(cellId))
+                && !(playerSecondSelectedCellList.contains(cellId))
+            ) {
+                emptyCells.add(cellId)
+            }
+        }
+
+        val r = Random()
+        val randomIndex = r.nextInt(emptyCells.size)
+        val randomCellId = emptyCells[randomIndex]
+
+
+        val button: Button = when (randomCellId) {
+            1 -> activity.findViewById(R.id.btnFirstCFirstR)
+            2 -> activity.findViewById(R.id.btnSecondCFirstR)
+            3 -> activity.findViewById(R.id.btnThirdCFirstR)
+            4 -> activity.findViewById(R.id.btnFirstCSecondR)
+            5 -> activity.findViewById(R.id.btnSecondCSecondR)
+            6 -> activity.findViewById(R.id.btnThirdCSecondR)
+            7 -> activity.findViewById(R.id.btnFirstCThirdR)
+            8 -> activity.findViewById(R.id.btnSecondCThirdR)
+            9 -> activity.findViewById(R.id.btnThirdCThirdR)
+            else -> activity.findViewById(R.id.btnFirstCFirstR)
+        }
+
+        // changes the appearance of the selected cell
+        button.text = Constants.PLAYER_SECOND_SELECTED_SYMBOL
+        playerSecondSelectedCellList.add(randomCellId)
+
+        // adds the cell to the selected cell list
+        button.setBackgroundResource(Constants.PLAYER_SECOND_SELECTED_COLOR)
+
+        // switches the player to the other one
+        activePlayer = 1
 
     }
 
