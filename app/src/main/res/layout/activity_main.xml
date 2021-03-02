@@ -20,21 +20,24 @@
         <Button
             android:id="@+id/btnFirstCFirstR"
             android:layout_width="50pt"
-            android:layout_height="50pt" />
+            android:layout_height="50pt"
+            android:onClick="btnClick" />
 
         <Button
             android:id="@+id/btnSecondCFirstR"
             android:layout_width="50pt"
             android:layout_height="50pt"
             android:layout_marginStart="5pt"
-            android:layout_marginLeft="5pt" />
+            android:layout_marginLeft="5pt"
+            android:onClick="btnClick" />
 
         <Button
             android:id="@+id/btnThirdCFirstR"
             android:layout_width="50pt"
             android:layout_height="50pt"
             android:layout_marginStart="5pt"
-            android:layout_marginLeft="5pt" />
+            android:layout_marginLeft="5pt"
+            android:onClick="btnClick" />
     </TableRow>
 
     <TableRow
@@ -50,21 +53,24 @@
         <Button
             android:id="@+id/btnFirstCSecondR"
             android:layout_width="50pt"
-            android:layout_height="50pt" />
+            android:layout_height="50pt"
+            android:onClick="btnClick" />
 
         <Button
             android:id="@+id/btnSecondCSecondR"
             android:layout_width="50pt"
             android:layout_height="50pt"
             android:layout_marginStart="5pt"
-            android:layout_marginLeft="5pt" />
+            android:layout_marginLeft="5pt"
+            android:onClick="btnClick" />
 
         <Button
             android:id="@+id/btnThirdCSecondR"
             android:layout_width="50pt"
             android:layout_height="50pt"
             android:layout_marginStart="5pt"
-            android:layout_marginLeft="5pt" />
+            android:layout_marginLeft="5pt"
+            android:onClick="btnClick" />
     </TableRow>
 
     <TableRow
@@ -80,20 +86,23 @@
         <Button
             android:id="@+id/btnFirstCThirdR"
             android:layout_width="50pt"
-            android:layout_height="50pt" />
+            android:layout_height="50pt"
+            android:onClick="btnClick" />
 
         <Button
             android:id="@+id/btnSecondCThirdR"
             android:layout_width="50pt"
             android:layout_height="50pt"
             android:layout_marginStart="5pt"
-            android:layout_marginLeft="5pt" />
+            android:layout_marginLeft="5pt"
+            android:onClick="btnClick" />
 
         <Button
             android:id="@+id/btnThirdCThirdR"
             android:layout_width="50pt"
             android:layout_height="50pt"
             android:layout_marginStart="5pt"
-            android:layout_marginLeft="5pt" />
+            android:layout_marginLeft="5pt"
+            android:onClick="btnClick" />
     </TableRow>
 </TableLayout>
